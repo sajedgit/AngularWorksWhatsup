@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   constructor() {
-    this.title = 'Tour of Heroes';
-    this.myHero = 'Windstorm';
-    this.arrData = [1,2,3];
+    this.title = 'Tour of Heroes'
+    this.myHero = 'Windstorm'
+    this.arrData = [1,2,3]
     this.obj={
       name:'sajed',
       age:32
@@ -28,6 +28,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  testClick(username:any,password:any)
+  {
+    alert(username.value);
+    alert(password.value)
+  }
+
+  getValue(item:any)
+  {
+    alert(item.target.value)
   }
 
 }

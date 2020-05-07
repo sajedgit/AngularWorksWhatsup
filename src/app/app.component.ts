@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable, interval, Subscription } from 'rxjs';
 
@@ -6,7 +6,8 @@ import { Observable, interval, Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   title = 'whatsup';
@@ -19,6 +20,12 @@ export class AppComponent {
   logout_btn=false;
   isLogin=false;
 
+  messages : {msg: string, sender: string, img: string, date: string}[] = [
+  {msg: 'This should be the first message', date: 'May 05', sender: 'Fahad', img: 'https://ptetutorials.com/images/user-profile.png'},
+  {msg: 'This should be the second message', date: 'May 03', sender: 'Fahad', img: 'https://ptetutorials.com/images/user-profile.png'},
+  {msg: 'This should be the third message', date: 'May 02', sender: 'Fahad', img: 'https://ptetutorials.com/images/user-profile.png'},
+  ];
+
   constructor(private http:HttpClient) { 
 
    
@@ -30,7 +37,7 @@ export class AppComponent {
     this.refreshData();
     this.interval = setInterval(() => { 
         this.refreshData(); 
-    }, 100000000);
+    }, 1000);
     
     
 
@@ -74,7 +81,7 @@ logout()
   this.write_msg_block=false;
   this.login_block=true;
   this.logout_btn=false;
-  this.isLogin=false;
+  this.isLogin=true;
 }
 
 
